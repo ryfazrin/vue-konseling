@@ -7,8 +7,7 @@
         <main class="c-main">
           <CContainer fluid>
             <transition name="fade" mode="out-in">
-              <!-- <router-view :key="$route.path"></router-view> -->
-              <slot name="body">default</slot>
+              <router-view :key="$route.path"></router-view>
             </transition>
           </CContainer>
         </main>
