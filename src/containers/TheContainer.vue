@@ -1,7 +1,8 @@
 <template>
   <div class="c-app">
-
+    <TheSidebar />
     <CWrapper>
+      <TheHeader />
       <div class="c-body">
         <main class="c-main">
           <CContainer fluid>
@@ -18,11 +19,15 @@
 </template>
 
 <script>
+import TheSidebar from './TheSidebar'
 import TheFooter from './TheFooter'
+import TheHeader from './TheHeader'
 
 export default {
   name: 'TheContainer',
   components: {
+    TheSidebar,
+    TheHeader,
     TheFooter
   }
 }
