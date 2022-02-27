@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@coreui/coreui": "^3.4.0",
+    "@coreui/icons": "^2.0.0-rc.0",
     "@coreui/vue": "^3.2.9",
     "core-js": "^3.8.3",
     "vue": "^2.6.14",

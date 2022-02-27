@@ -960,7 +960,7 @@
   dependencies:
     vue "~2.6.11"
 
-"@coreui/icons@^2.0.1":
+"@coreui/icons@^2.0.0-rc.0", "@coreui/icons@^2.0.1":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@coreui/icons/-/icons-2.1.0.tgz#b21641d3d034fdef308c87dc347c8684c408a753"
   integrity sha512-3yY9J0088TSY403jwJeP5YERH3RLOvxdhOa4VIQsGOX4fuQZiyVUM+vwlzyCSpgAv9NwKPkCor+gc+JJaYf0TA==
