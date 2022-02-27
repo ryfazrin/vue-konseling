@@ -1,23 +1,25 @@
 <template>
   <div id="app">
-    <CButton
-      color="primary">
-      Button Pertama
-    </CButton>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Ryan Pazrin"/>
+    <TheContainer>
+      <template v-slot:body>
+        <CButton
+          color="primary"
+          variant="outline"
+        >
+          Button Pertama
+        </CButton>
+      </template>
+    </TheContainer>
   </div>
 </template>
 
 <script>
-import { CButton } from '@coreui/vue'
-import HelloWorld from './components/HelloWorld.vue'
+import TheContainer from './containers/TheContainer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    CButton
+    TheContainer,
   }
 }
 </script>
