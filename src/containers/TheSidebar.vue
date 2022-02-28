@@ -18,6 +18,7 @@
         :height="35" 
         viewBox="0 0 110 134"
       />
+      <CBadge color="success">Beta</CBadge>
     </CSidebarBrand>
 
     <CRenderFunction flat :content-to-render="$options.nav"/>
