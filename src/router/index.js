@@ -6,6 +6,7 @@ const TheContainer = () => import('@/containers/TheContainer')
 
 // Views
 const DashboardPage = () => import('@/views/DashboardPage')
+const KelasPage = () => import('@/views/Kelas/KelasPage')
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ function configRoutes() {
           name: 'DashboardPage',
           component: DashboardPage
         },
+        {
+          path: '/bio/kelas',
+          name: 'Kelas',
+          component: KelasPage
+        }
         // {
         //   path: 'buttons',
         //   redirect: '/buttons/standard-buttons',
