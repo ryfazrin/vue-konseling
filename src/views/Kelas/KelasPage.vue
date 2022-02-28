@@ -3,11 +3,38 @@
     <CCard accent-color="primary">
       <CCardHeader>
         Kelas
+
         <div class="card-header-actions">
-          <CButton color="primary">Tambah Kelas</CButton>
+          <CButton color="primary" @click="showModal = true">Tambah Kelas</CButton>
+          <CModal
+            title="Add Kelas"
+            :show.sync="showModal"
+          >
+            <CRow>
+              <CCol sm="12">
+                <CInput
+                  label="Kelas"
+                  placeholder="Masukkan Kelas"
+                />
+              </CCol>
+              <CCol sm="12">
+                <CInput
+                  label="Tahun"
+                  placeholder="Masukkan Tahun"
+                />
+              </CCol>
+            </CRow>
+            
+            <template #footer>
+              <CButton color="secondary" @click="showModal = false">Close</CButton>
+              <CButton color="primary">Save</CButton>
+            </template>
+          </CModal>
         </div>
       </CCardHeader>
+
       <CCardBody>
+        
         <CDataTable
           :items="items"
           :fields="fields"
@@ -40,7 +67,7 @@
                     Kelas: {{item.kelas}}
                   </h4>
                   <p class="text-muted">Since: {{item.year}}</p>
-                  <CButton size="sm" color="info" class="">
+                  <CButton size="sm" color="info">
                     Edit
                   </CButton>
                   <CButton size="sm" color="danger" class="ml-1">
@@ -51,12 +78,15 @@
             </CCollapse>
           </template>
         </CDataTable>
+
       </CCardBody>
     </CCard>
   </div>
 </template>
 
 <script>
+// import AddEditModal from "./AddEditModal";
+
 // data items
 const items = [
     {
@@ -86,7 +116,8 @@ const fields = [
     label: '', 
     _style: 'width:1%', 
     sorter: false, 
-    filter: false
+    filter: false,
+    showModal: false
   }
 ]
 
@@ -97,7 +128,8 @@ export default {
       items: items.map((item, id) => { return {...item, id}}),
       fields,
       details: [],
-      collapseDuration: 0
+      collapseDuration: 0,
+      showModal: false
     }
   },
   methods: {
@@ -105,7 +137,7 @@ export default {
       this.$set(this.items[item.id], '_toggled', !item._toggled)
       this.collapseDuration = 300
       this.$nextTick(() => { this.collapseDuration = 0})
-    }
+    },
   }
 }
 </script>
