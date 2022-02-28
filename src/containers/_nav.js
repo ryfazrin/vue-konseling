@@ -6,28 +6,66 @@ export default [
         _name: 'CSidebarNavItem',
         name: 'Dashboard',
         to: '/dashboard',
-        icon: 'cil-speedometer',
-        badge: {
-          color: 'primary',
-          text: 'NEW'
-        }
+        icon: 'cil-speedometer'
       },
+      // bio sekolah
       {
         _name: 'CSidebarNavTitle',
-        _children: ['Theme']
+        _children: ['bio sekolah']
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'Colors',
-        to: '/theme/colors',
+        name: 'Identitas Sekolah',
+        to: '/bio/identitas-sekolah',
         icon: 'cil-drop'
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'Typography',
-        to: '/theme/typography',
+        name: 'Kelas',
+        to: '/bio/kelas',
         icon: 'cil-pencil'
       },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Data Peserta Didik',
+        to: '/bio/peserta-didik',
+        icon: 'cil-school'
+      },
+      // angket kebutuhan peserta didik
+      {
+        _name: 'CSidebarNavTitle',
+        _children: ['angket kebutuhan peserta didik']
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Kelola Soal AKPD',
+        to: '/akpd/soal',
+        icon: 'cil-pencil'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Jawaban Peserta Didik',
+        to: '/akpd/jawaban',
+        icon: 'cil-pencil'
+      },
+      // hasil analisis
+      {
+        _name: 'CSidebarNavTitle',
+        _children: ['hasil analisis']
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Analisis Profil Kelas',
+        to: '/analisis/profil-kelas',
+        icon: 'cib-google-analytics'
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Analisis Profil Konseling',
+        to: '/analisis/profil-konseling',
+        icon: 'cil-pencil'
+      },
+      // Component
       {
         _name: 'CSidebarNavTitle',
         _children: ['Components']
