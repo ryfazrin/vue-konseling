@@ -7,6 +7,7 @@ const TheContainer = () => import('@/containers/TheContainer')
 // Views
 const DashboardPage = () => import('@/views/DashboardPage')
 const KelasPage = () => import('@/views/Kelas/KelasPage')
+const SoalPage = () => import('@/views/SoalAkpd/SoalPage')
 
 Vue.use(Router)
 
@@ -34,7 +35,12 @@ function configRoutes() {
           path: '/bio/kelas',
           name: 'Kelas',
           component: KelasPage
-        }
+        },
+        {
+          path: '/akpd/soal',
+          name: 'Soal AKPD',
+          component: SoalPage
+        },
         // {
         //   path: 'buttons',
         //   redirect: '/buttons/standard-buttons',
