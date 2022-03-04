@@ -1,15 +1,31 @@
 <template>
   <CModal
-    title="Modal title"
-    color="warning"
+    title="Add Edit Kelas"
+    color="primary"
     :show.sync="showModal"
     >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <CRow>
+            <CCol sm="12">
+                <CInput
+                    label="Kelas"
+                    placeholder="Masukkan Kelas"
+                    v-model="data.kelas"
+                />
+            </CCol>
+            <CCol sm="12">
+                <CInput
+                    type="number"
+                    label="Tahun"
+                    placeholder="Masukkan Tahun"
+                    v-model="data.year"
+                />
+            </CCol>
+        </CRow>
+        
+        <template #footer>
+            <CButton color="secondary" @click="showModal = false">Close</CButton>
+            <CButton color="primary" @click="save">Save</CButton>
+        </template>
     </CModal>
 </template>
 
@@ -18,13 +34,36 @@ export default {
     name: 'AddModal',
     data() {
         return {
+            data: {
+                id: null,
+                kelas: null,
+                year: null,
+            },
+            insertModal: true, 
             showModal: false
         }
     },
     methods: {
-        setModal(stat) {
+        setModal(stat, data = null) {
             this.showModal = stat
-        }
+            if(data != null) {
+                this.insertModal = false
+                this.data = data
+            } else {
+                this.insertModal = true
+                this.data.id = null
+                this.data.kelas = null
+                this.data.year = null
+            }
+        },
+        save() {
+            if (this.insertModal) {
+                console.log(this.data)
+            } else {
+                console.log("edit")
+                console.log(this.data)
+            }
+        },
     },
 }
 </script>

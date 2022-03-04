@@ -23,36 +23,15 @@
           sorter
           pagination
         >
-          <template #show_details="{item, index}">
+          <template #show_details="{item}">
             <td class="py-2">
-              <CButton
-                color="primary"
-                variant="outline"
-                square
-                size="sm"
-                @click="toggleDetails(item, index)"
-              >
-                {{Boolean(item._toggled) ? 'Hide' : 'Show'}}
+              <CButton size="sm" color="info" @click="$refs.addModal.setModal(true, item)">
+                Edit
+              </CButton>
+              <CButton size="sm" color="danger" class="ml-1">
+                Delete
               </CButton>
             </td>
-          </template>
-          <template #details="{item}">
-            <CCollapse :show="Boolean(item._toggled)" :duration="collapseDuration">
-              <CCardBody>
-                <CMedia :aside-image-props="{ height: 102 }">
-                  <h4>
-                    Kelas: {{item.kelas}}
-                  </h4>
-                  <p class="text-muted">Since: {{item.year}}</p>
-                  <CButton size="sm" color="info">
-                    Edit
-                  </CButton>
-                  <CButton size="sm" color="danger" class="ml-1">
-                    Delete
-                  </CButton>
-                </CMedia>
-              </CCardBody>
-            </CCollapse>
           </template>
         </CDataTable>
 
@@ -91,7 +70,7 @@ const fields = [
   { 
     key: 'show_details', 
     label: '', 
-    _style: 'width:1%', 
+    _style: 'width: 20%',
     sorter: false, 
     filter: false,
     showModal: false
