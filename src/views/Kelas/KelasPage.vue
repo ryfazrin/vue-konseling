@@ -4,7 +4,8 @@
       <CCardHeader>
         Kelas
         <div class="card-header-actions">
-          <CButton color="primary">Tambah Kelas</CButton>
+          <CButton color="primary" @click="$refs.addModal.setModal(true)">Tambah Kelas</CButton>
+          <AddModal ref="addModal"></AddModal>
         </div>
       </CCardHeader>
       <CCardBody>
@@ -57,6 +58,8 @@
 </template>
 
 <script>
+import AddModal from './AddModal.vue'
+
 // data items
 const items = [
     {
@@ -92,12 +95,16 @@ const fields = [
 
 export default {
   name: 'KelasPage',
+  components: {
+    AddModal
+  },
   data () {
     return {
       items: items.map((item, id) => { return {...item, id}}),
       fields,
       details: [],
-      collapseDuration: 0
+      collapseDuration: 0,
+      showThis: false
     }
   },
   methods: {
