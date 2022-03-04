@@ -28,13 +28,25 @@
               <CButton size="sm" color="info" @click="$refs.addModal.setModal(true, item)">
                 Edit
               </CButton>
-              <CButton size="sm" color="danger" class="ml-1">
+              <CButton size="sm" color="danger" class="ml-1" @click="deleteData.id = item.id, deleteData.modal = true">
                 Delete
               </CButton>
             </td>
           </template>
         </CDataTable>
 
+        <CModal
+          title="Delete"
+          color="danger"
+          :show.sync="deleteData.modal"
+          >
+            Delete Permanent? {{ deleteData.id }}
+            <template #footer>
+                <CButton color="primary" @click="showModal = false">Close</CButton>
+                <CButton @click="deleteKelas">Yes</CButton>
+            </template>
+          </CModal>
+          
       </CCardBody>
     </CCard>
   </div>
@@ -72,8 +84,7 @@ const fields = [
     label: '', 
     _style: 'width: 20%',
     sorter: false, 
-    filter: false,
-    showModal: false
+    filter: false
   }
 ]
 
@@ -88,15 +99,20 @@ export default {
       fields,
       details: [],
       collapseDuration: 0,
-      showThis: false
+      deleteData: {
+        id: null,
+        modal: false
+      }
     }
   },
   methods: {
-    toggleDetails (item) {
-      this.$set(this.items[item.id], '_toggled', !item._toggled)
-      this.collapseDuration = 300
-      this.$nextTick(() => { this.collapseDuration = 0})
-    },
+    deleteKelas() {
+      console.log(this.deleteData.id)
+      // di sini fungsi axios
+
+      // hapus data di frontend 
+      this.items.splice(this.deleteData.id, 1)
+    }
   }
 }
 </script>
