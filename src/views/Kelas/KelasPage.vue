@@ -5,31 +5,8 @@
         Kelas
 
         <div class="card-header-actions">
-          <CButton color="primary" @click="showModal = true">Tambah Kelas</CButton>
-          <CModal
-            title="Add Kelas"
-            :show.sync="showModal"
-          >
-            <CRow>
-              <CCol sm="12">
-                <CInput
-                  label="Kelas"
-                  placeholder="Masukkan Kelas"
-                />
-              </CCol>
-              <CCol sm="12">
-                <CInput
-                  label="Tahun"
-                  placeholder="Masukkan Tahun"
-                />
-              </CCol>
-            </CRow>
-            
-            <template #footer>
-              <CButton color="secondary" @click="showModal = false">Close</CButton>
-              <CButton color="primary">Save</CButton>
-            </template>
-          </CModal>
+          <CButton color="primary" @click="$refs.addModal.setModal(true)">Tambah Kelas</CButton>
+          <AddModal ref="addModal"></AddModal>
         </div>
       </CCardHeader>
 
@@ -85,7 +62,7 @@
 </template>
 
 <script>
-// import AddEditModal from "./AddEditModal";
+import AddModal from './AddModal.vue'
 
 // data items
 const items = [
@@ -123,13 +100,16 @@ const fields = [
 
 export default {
   name: 'KelasPage',
+  components: {
+    AddModal
+  },
   data () {
     return {
       items: items.map((item, id) => { return {...item, id}}),
       fields,
       details: [],
       collapseDuration: 0,
-      showModal: false
+      showThis: false
     }
   },
   methods: {
