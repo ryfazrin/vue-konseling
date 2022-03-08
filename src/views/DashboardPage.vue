@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CCard  accent-color="primary">
+    <CCard accent-color="primary">
       <CCardHeader>
         Card title
         <div class="card-header-actions">
